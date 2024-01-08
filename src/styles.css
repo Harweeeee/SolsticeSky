@@ -1,6 +1,8 @@
 body {
     background-color: #d7e1e0;
     font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
@@ -79,8 +81,9 @@ a {
 #tempData {
     color: #dd7a0f;
     display: flex;
+    width: 60%;
     justify-content: space-evenly;
-    margin: 30px;
+    margin: 10px auto;
     font-weight: 50px;
     font-size: 25px;
 }
