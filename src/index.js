@@ -5,8 +5,16 @@ searchClick.addEventListener("click", userSearch);
 
 function searchCity(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayTemperature);    
+    axios.get(apiUrl).then(checkResponse);    
 }
+
+function checkResponse(response) {
+    if (response.data.status === "not_found") {
+        alert(response.data.message); 
+    } else {
+        displayWeather(response);
+    }
+    };
 
 function userSearch(event) {
     event.preventDefault();
@@ -15,14 +23,13 @@ function userSearch(event) {
       
 }
 
-function displayTemperature(response) {
+function displayWeather(response) {
     let cityHeading = document.querySelector("h1");
     let citySearched = response.data.city;
     cityHeading.innerHTML = citySearched;
     let temperature = document.querySelector("#temperature");
     let currentTemperature = Math.round(response.data.temperature.current);
     temperature.innerHTML = `${currentTemperature}°C`;
-    console.log(response);
     let description = document.querySelector("#tempDesc");
     let weatherDesc = response.data.condition.description;
     description.innerHTML = weatherDesc;
