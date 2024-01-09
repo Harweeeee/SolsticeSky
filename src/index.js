@@ -17,5 +17,11 @@ function displayTemperature(response) {
     let currentTemperature = Math.round(response.data.temperature.current);
     temperature.innerHTML = `${currentTemperature}°C`;
     console.log(response);
+    let description = document.querySelector("#tempDesc");
+    let weatherDesc = response.data.condition.description;
+    description.innerHTML = weatherDesc;
+    let wind = document.querySelector("#wind-data");
+    let windDesc = response.data.wind.speed;
+    wind.innerHTML = `${windDesc} km/h`;
 }
 
