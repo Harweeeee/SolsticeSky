@@ -27,14 +27,19 @@ function displayWeather(response) {
     let cityHeading = document.querySelector("h1");
     let citySearched = response.data.city;
     cityHeading.innerHTML = citySearched;
-    let temperature = document.querySelector("#temperature");
+    let temperatureElement = document.querySelector("#temperature");
     let currentTemperature = Math.round(response.data.temperature.current);
-    temperature.innerHTML = `${currentTemperature}°C`;
+    temperatureElement.innerHTML = `${currentTemperature}°C`;
     let description = document.querySelector("#tempDesc");
     let weatherDesc = response.data.condition.description;
     description.innerHTML = weatherDesc;
     let wind = document.querySelector("#wind-data");
-    let windDesc = response.data.wind.speed;
-    wind.innerHTML = `${windDesc} km/h`;
-}
+    let windRead = response.data.wind.speed;
+    wind.innerHTML = `${windRead} km/h`;
+    console.log(response);
+    let humid = document.querySelector("#humidity-data");
+    let humidRead = response.data.temperature.humidity;
+    humid.innerHTML = `${humidRead}%`;
+};
 
+searchCity("Sydney");
