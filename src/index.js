@@ -1,18 +1,24 @@
 const apiKey = "263tdf1c5f75o8ab465cedabbe0f4604";
 
 let searchClick = document.querySelector("#searchButton");
-searchClick.addEventListener("click", displayCity);
+searchClick.addEventListener("click", userSearch);
 
-function displayCity(event) {
-    event.preventDefault();
-    let cityHeading = document.querySelector("h1");
-    let searchValue = document.querySelector("#searchInput").value;
-    cityHeading.innerHTML = searchValue;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchValue}&key=${apiKey}&units=metric`;
+function searchCity(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayTemperature);    
 }
 
+function userSearch(event) {
+    event.preventDefault();
+    let searchValue = document.querySelector("#searchInput").value;
+    searchCity(searchValue);
+      
+}
+
 function displayTemperature(response) {
+    let cityHeading = document.querySelector("h1");
+    let citySearched = response.data.city;
+    cityHeading.innerHTML = citySearched;
     let temperature = document.querySelector("#temperature");
     let currentTemperature = Math.round(response.data.temperature.current);
     temperature.innerHTML = `${currentTemperature}°C`;
