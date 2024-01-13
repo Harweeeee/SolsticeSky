@@ -40,6 +40,41 @@ function displayWeather(response) {
     let humid = document.querySelector("#humidity-data");
     let humidRead = response.data.temperature.humidity;
     humid.innerHTML = `${humidRead}%`;
+    let icon = document.querySelector("#icon");
+    let iconCurrent = response.data.condition.icon_url;
+    icon.src = iconCurrent;
 };
+
+
+function dateFormat(date) {
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+    let day = date.getDay();
+
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    
+    let currentDay = days[day];
+    return `${currentDay}, ${hours}:${minutes}`;  
+}
+
+let dateElement = document.querySelector("#timeDay");
+let currentDate = new Date();
+dateElement.innerHTML = dateFormat(currentDate);
 
 searchCity("Sydney");
