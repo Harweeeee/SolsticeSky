@@ -71,6 +71,7 @@ a {
     cursor: pointer;
 }
 
+
 #icon {
     width: 40px;
 }
@@ -92,6 +93,7 @@ a {
     font-size: 25px;
 }
 
+
 #tempDesc {
     font-size: 15px;
 }
@@ -105,6 +107,30 @@ a {
     width: 70%;
     margin: 0 auto;
 }
+
+
+#weather-forecast {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.weather-forecast-day {
+    font-weight: bold;
+}
+
+
+.weather-forecast-temperatures {
+    color: #dd7a0f;
+}
+
+
+.weather-forecast-temp-min {
+    opacity: 0.6;
+}
+
+
 
 
 
