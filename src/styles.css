@@ -38,7 +38,7 @@ a {
 
 #mainSection {
     background-color: #f8f8f8;
-    width: 40%;
+    width: 70%;
     text-align: center;
     margin: 0 auto;
     border-radius: 4px;
@@ -104,7 +104,7 @@ a {
     background-color: #cfebe8;
     border-radius: 4px;
     font-size: 12px;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -113,6 +113,7 @@ a {
     margin: 10px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 
